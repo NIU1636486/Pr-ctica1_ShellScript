@@ -1,15 +1,18 @@
-#!/bin/bashva
+#!/bin/bash
 i=$1
 awk -F"," -v buscar="$i" '$1 ~ buscar' CAvideos.csv > CABUSCAR1.temp
 awk -F"," -v buscar="$i" '$3 ~ buscar' CAvideos.csv > CABUSCAR2.temp
+a1=CABUSCAR1.temp
+a2=CABUSCAR2.temp
 if [ "$#" != 0 ]; then
-	if [ -s "$CABUSCAR1.temp" ]; then
+	if [ -s "$a1" ]; then
 		echo "buscar1"
-	if [ -s "$CABUSCAR2.temp"]; then
-		echo "buscar2"	
+	fi
+	if [ -s "$a2" ]; then
+		echo "buscar2"
+	fi
 	else
 		echo "caca"
-	fi
 fi
 
 if [ "$#" == 0 ]; then
