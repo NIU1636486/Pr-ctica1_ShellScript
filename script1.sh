@@ -54,10 +54,7 @@ if [ "$#" != 0 ]; then
 		echo "Description:"
 		cat CABUSCAR1.csv| awk -v FS=',' '{print $16}'| head -2 | tail -n 1
 		echo
-		
-		
-	fi
-	if [ -s "$a2" ]; then
+	elif [ -s "$a2" ]; then
 		echo "video id:" 
 		cat CABUSCAR2.csv| awk -v FS=',' '{print $1}'| head -2 | tail -n 1
 		echo
@@ -106,9 +103,9 @@ if [ "$#" != 0 ]; then
 		echo "Description:"
 		cat CABUSCAR2.csv| awk -v FS=',' '{print $16}'| head -2 | tail -n 1
 		echo
-	fi
 	else
-		echo "caca"
+		echo "No s'ha trobat coincidències."
+	fi
 fi
 
 if [ "$#" == 0 ]; then
