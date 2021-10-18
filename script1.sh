@@ -1,15 +1,111 @@
 #!/bin/bash
 i=$1
-awk -F"," -v buscar="$i" '$1 ~ buscar' CAvideos.csv > CABUSCAR1.temp
-awk -F"," -v buscar="$i" '$3 ~ buscar' CAvideos.csv > CABUSCAR2.temp
-a1=CABUSCAR1.temp
-a2=CABUSCAR2.temp
+awk -F"," -v buscar="$i" '$1 ~ buscar' CAvideos.csv > CABUSCAR1.csv
+awk -F"," -v buscar="$i" '$3 ~ buscar' CAvideos.csv > CABUSCAR2.csv
+a1=CABUSCAR1.csv
+a2=CABUSCAR2.csv
 if [ "$#" != 0 ]; then
 	if [ -s "$a1" ]; then
-		echo "buscar1"
+		echo "video id:" 
+		cat CABUSCAR1.csv| awk -v FS=',' '{print $1}'| head -2 | tail -n 1
+		echo
+		echo "Trending date:"
+		cat CABUSCAR1.csv| awk -v FS=',' '{print $2}'| head -2 | tail -n 1
+		echo
+		echo "Title:"
+		cat CABUSCAR1.csv| awk -v FS=',' '{print $3}'| head -2 | tail -n 1
+		echo
+		echo "Channel title:"
+		cat CABUSCAR1.csv| awk -v FS=',' '{print $4}'| head -2 | tail -n 1
+		echo
+		echo "Category id:"
+		cat CABUSCAR1.csv| awk -v FS=',' '{print $5}'| head -2 | tail -n 1
+		echo
+		echo "Publish time:"
+		cat CABUSCAR1.csv| awk -v FS=',' '{print $6}'| head -2 | tail -n 1
+		echo
+		echo "Tags:"
+		cat CABUSCAR1.csv| awk -v FS=',' '{print $7}'| head -2 | tail -n 1
+		echo
+		echo "Views:"
+		cat CABUSCAR1.csv| awk -v FS=',' '{print $8}'| head -2 | tail -n 1
+		echo
+		echo "Likes:"
+		cat CABUSCAR1.csv| awk -v FS=',' '{print $9}'| head -2 | tail -n 1
+		echo
+		echo "Dislikes:" 
+		cat CABUSCAR1.csv| awk -v FS=',' '{print $10}'| head -2 | tail -n 1
+		echo
+		echo "Comment count:"
+		cat CABUSCAR1.csv| awk -v FS=',' '{print $11}'| head -2 | tail -n 1
+		echo
+		echo "Thumbnail_link:"
+		cat CABUSCAR1.csv| awk -v FS=',' '{print $12}'| head -2 | tail -n 1
+		echo
+		echo "Comments dissabled:"
+		cat CABUSCAR1.csv| awk -v FS=',' '{print $13}'| head -2 | tail -n 1
+		echo
+		echo "Rating dissabled:"
+		cat CABUSCAR1.csv| awk -v FS=',' '{print $14}'| head -2 | tail -n 1
+		echo
+		echo "Video error:"
+		cat CABUSCAR1.csv| awk -v FS=',' '{print $15}'| head -2 | tail -n 1
+		echo
+		echo "Description:"
+		cat CABUSCAR1.csv| awk -v FS=',' '{print $16}'| head -2 | tail -n 1
+		echo
+		
+		
 	fi
 	if [ -s "$a2" ]; then
-		echo "buscar2"
+		echo "video id:" 
+		cat CABUSCAR2.csv| awk -v FS=',' '{print $1}'| head -2 | tail -n 1
+		echo
+		echo "Trending date:"
+		cat CABUSCAR2.csv| awk -v FS=',' '{print $2}'| head -2 | tail -n 1
+		echo
+		echo "Title:"
+		cat CABUSCAR2.csv| awk -v FS=',' '{print $3}'| head -2 | tail -n 1
+		echo
+		echo "Channel title:"
+		cat CABUSCAR2.csv| awk -v FS=',' '{print $4}'| head -2 | tail -n 1
+		echo
+		echo "Category id:"
+		cat CABUSCAR2.csv| awk -v FS=',' '{print $5}'| head -2 | tail -n 1
+		echo
+		echo "Publish time:"
+		cat CABUSCAR2.csv| awk -v FS=',' '{print $6}'| head -2 | tail -n 1
+		echo
+		echo "Tags:"
+		cat CABUSCAR2.csv| awk -v FS=',' '{print $7}'| head -2 | tail -n 1
+		echo
+		echo "Views:"
+		cat CABUSCAR2.csv| awk -v FS=',' '{print $8}'| head -2 | tail -n 1
+		echo
+		echo "Likes:"
+		cat CABUSCAR2.csv| awk -v FS=',' '{print $9}'| head -2 | tail -n 1
+		echo
+		echo "Dislikes:" 
+		cat CABUSCAR2.csv| awk -v FS=',' '{print $10}'| head -2 | tail -n 1
+		echo
+		echo "Comment count:"
+		cat CABUSCAR2.csv| awk -v FS=',' '{print $11}'| head -2 | tail -n 1
+		echo
+		echo "Thumbnail_link:"
+		cat CABUSCAR2.csv| awk -v FS=',' '{print $12}'| head -2 | tail -n 1
+		echo
+		echo "Comments dissabled:"
+		cat CABUSCAR2.csv| awk -v FS=',' '{print $13}'| head -2 | tail -n 1
+		echo
+		echo "Rating dissabled:"
+		cat CABUSCAR2.csv| awk -v FS=',' '{print $14}'| head -2 | tail -n 1
+		echo
+		echo "Video error:"
+		cat CABUSCAR2.csv| awk -v FS=',' '{print $15}'| head -2 | tail -n 1
+		echo
+		echo "Description:"
+		cat CABUSCAR2.csv| awk -v FS=',' '{print $16}'| head -2 | tail -n 1
+		echo
 	fi
 	else
 		echo "caca"
